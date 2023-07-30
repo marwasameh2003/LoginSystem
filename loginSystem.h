@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <conio.h>
 
+
 using namespace std;
 void emailExist();
 //----------------------
@@ -30,5 +31,6 @@ void emailExist();
 bool isPasswordstrong(string password);
 
 bool is_name_valid(const string& name);
+
 
 #endif // LOGINSYSTEM_H_INCLUDED

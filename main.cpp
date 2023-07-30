@@ -1,7 +1,7 @@
 #include"loginSystem.h"
 #include <iostream>
-// FCAI – Programming 1 – 2022 - Assignment 4
-// Program Name: loginApp.cpp
+using namespace std;
+
 // Last Modification Date: 16/ 5/ 2022
 // Author1 and ID and Group: Asmaa ELAwady 20210068
 // Author2 and ID and Group: Salma Ameer 20210505
@@ -10,7 +10,7 @@
 // Purpose:login App
 //---------------------------
 // NOTE:: it is preferable to have a text file called test1 so the code runs perfectly.
-using namespace std;
+
 
 int main(){
     map<char,string> passencrypt =
@@ -47,14 +47,15 @@ string username ;
     string password,passs,name,fname;
     ofstream fileo;
     ifstream filei;
-    cout<<"Welcome to our system"<<endl;
+    cout<<"Welcome to our LOGIN system"<<endl;
     while(exit==0)
     {
-        cout<<"Choose one option:"<<endl;
+
         cout<<" 1-Login "<<endl;
         cout<<" 2-Register"<<endl;
         cout<<" 3-change password"<<endl;
         cout<< "4- Exit"<< endl;
+        cout<<"Choose one option:"<<endl;
         cin>>choice;
 //-----login part-----------
         if(choice==1){
@@ -66,20 +67,28 @@ string username ;
         if(choice==2)
         {
             string name1;
-        cout<<"enter your name:";
+        cout<<"Enter your name:";
       cin.ignore();
 getline(cin,name1 );
+while( !(is_name_valid(name1))){
+    cout << "invalid format\n";
+    cout << "please enter your name again:";
+     cin>>name1;
 
-       cout << name1 << " : " << (is_name_valid(name1) ?"valid format" : "invalid format") << endl;
+}
+
 
         valid(name1);
 
             //---------------------------
-            cout<<"enter your phone_number:";
+             cout<<"Enter your phone number:";
             cin>>phone_number;
+while(!sizeof(phone_number) == 11 || !(is_phone_number1_valid(phone_number))){
+    cout << "invalid format\n";
+    cout << "please enter the phone number again:";
+     cin>>phone_number;
 
-            cout << phone_number << " : " << (is_phone_number1_valid(phone_number) ?"valid format" : "invalid format") << endl;
-
+}
             valid(phone_number );
 
             //-----------------------------
@@ -88,7 +97,14 @@ getline(cin,name1 );
 
             valid(username);
 
-            cout<<"Enter a password:" ;
+
+
+        cout<<"Strong password may include"<< endl;
+        cout<< "1. uppercase letters"<< endl;
+        cout<< "2. lowercase letters"<< endl;
+        cout<< "3. numbers "<< endl;
+        cout<< "4. symbols like ! @ %  $  &  ? *  "<< endl;
+                    cout<<"Enter the password here:" << endl;
              for(int i = 0; i<sizeof(passs); i++){
                     passs[i]= getch();
                     cout<<"*";
@@ -98,10 +114,11 @@ getline(cin,name1 );
                         // userpass.pop_back;
                         //cout<< "\b\b";
                     }
+
                 }
                 passs[i] = '\0';
                 cout<<"\n";
-            //cin>>password;
+
             insurepassword7(password);
 
             for(char letter: password){
@@ -113,13 +130,13 @@ getline(cin,name1 );
             //---------------------------------------------------------------------------------------------------------------------------------------------------------
                  ofstream reg("test1.txt",ios::app);
         reg<<name1<<' '<<phone_number<<' '<<username<<' '<<encrypedpass<<' '<< endl;
-        //<<email1<<endl;
+
         cout<< endl;
 
         //-------------------
         fileo.open(fname.c_str());
         fileo<< name1<<endl<<phone_number<<endl<<username<<endl<<encrypedpass<<endl;
-        //<<email1<<endl;
+
         cout<<"You are successfully registered"<<endl;
 
 
@@ -137,3 +154,4 @@ getline(cin,name1 );
         }
     }
 }
+

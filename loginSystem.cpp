@@ -1,6 +1,7 @@
 #include"loginSystem.h"
 
 
+
 bool isPasswordstrong(string password){
     regex passwordformat("(?=.*[a-z)(?=.*[A-Z])(?=.*\\d)(?=.*[&*%$@!?])[A-Za-z\\d&*%$@!?]{8,}");
     return regex_match(password,passwordformat);
@@ -33,7 +34,7 @@ int i;
                     passs[i]= getch();
                     cout<<"*";
                     insurePassword +=  passs[i];
-                    if(passs[i]== ' ' ){
+                    if(passs[i]== '\r' ){
                         break;
                         // userpass.pop_back;
                         //cout<< "\b\b";
@@ -42,11 +43,11 @@ int i;
                 passs[i] = '\0';
                 cout<<"\n";
         }
-    while (!isPasswordstrong(password)){
+   /* while (!isPasswordstrong(password)){
         cout << "This password is so weak please enter another one:";
         cin >> password;
 
-    }
+    }*/
 
 }
 //-------------------------------
@@ -138,7 +139,7 @@ string userpass, userpassword;
         userpass[i]= getch();
         cout<<"*";
         userpassword +=  userpass[i];
-        if(userpass[i]== ' ' ){
+        if(userpass[i]== '\r' ){
             break;
             // userpass.pop_back;
             //cout<< "\b\b";
@@ -316,21 +317,21 @@ bool newPassExist = 0;
 
 bool oldpassFound = 0;
     threeChances();
-    string oldpass, encryptoldpass;
+    string oldpass,oldpasss, encryptoldpass;
     cout<<"please enter your old password: "<< endl;
-    /* for(int i = 0; i<sizeof(oldpass); i++){
-       oldpass[i]= getch();
+     for(int i = 0; i<sizeof(oldpasss); i++){
+       oldpasss[i]= getch();
        cout<<"*";
-       oldpass +=  oldpass[i];
-  if(oldpass[i]== ' ' ){
+       oldpass +=  oldpasss[i];
+  if(oldpasss[i]== '\r' ){
       break;
   // userpass.pop_back;
    //cout<< "\b\b";
    }
    }
-   oldpass[i] = '\0';
-   cout<<"\n";*/
-    cin>> oldpass;
+   oldpasss[i] = '\0';
+   cout<<"\n";
+   // cin>> oldpass;
     // cout<< oldpass;
 
     for(char letter: oldpass){
@@ -379,7 +380,7 @@ string encryptnewpass;
             newpass2[i]= getch();
             cout<<"*";
             newpass2 +=  newpass2[i];
-            if(newpass2[i]== ' ' ){
+            if(newpass2[i]== '\r' ){
                 break;
                 // userpass.pop_back;
                 //cout<< "\b\b";
@@ -521,5 +522,10 @@ bool is_name_valid(const string& name)
    return regex_match(name, pattern);
 
 }
+
+
+
+
+
 
 
