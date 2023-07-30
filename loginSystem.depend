@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1690704098 source:c:\assignments\loginsystem\loginsystem.cpp
+	"loginSystem.h"
+
+1690703899 c:\assignments\loginsystem\loginsystem.h
+	<map>
+	<cctype>
+	<cmath>
+	<iostream>
+	<string>
+	<regex>
+	<fstream>
+	<stdio.h>
+	<conio.h>
+
+1690704084 source:c:\assignments\loginsystem\main.cpp
+	"loginSystem.h"
+	<iostream>
+
